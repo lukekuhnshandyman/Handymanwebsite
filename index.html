@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lake Country Handyman Solutions | Coming Soon</title>
+  <title>Lake Country Handyman Solutions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -28,6 +28,13 @@
       scroll-behavior: smooth;
     }
 
+    #services,
+    #about,
+    #faq,
+    #contact {
+      scroll-margin-top: 20px;
+    }
+
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -37,7 +44,11 @@
         radial-gradient(circle at right 10% top 18%, rgba(180, 116, 64, 0.08), transparent 22%),
         linear-gradient(180deg, #f8f4ee 0%, #f3ede6 40%, #efe7de 100%);
       overflow-x: hidden;
-      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -79,14 +90,10 @@
       width: 52px;
       height: 52px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      display: grid;
-      place-items: center;
-      font-size: 1rem;
+      object-fit: cover;
       box-shadow: 0 14px 30px rgba(141, 91, 52, 0.22);
+      background: #d8c1aa;
       flex-shrink: 0;
-      font-weight: 800;
     }
 
     .brand-copy span {
@@ -103,28 +110,62 @@
       letter-spacing: 0.02em;
     }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 11px 16px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.6);
+      color: var(--text);
+    }
+
+    .nav-links .cta,
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: 0 16px 30px rgba(141, 91, 52, 0.28);
+    }
+
+    .nav-links .cta:hover,
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(141, 91, 52, 0.32);
+    }
+
     .hero {
-      padding: 34px 0 46px;
+      padding: 34px 0 26px;
     }
 
     .hero-shell {
       position: relative;
       overflow: hidden;
       border-radius: 38px;
-      min-height: calc(100vh - 150px);
+      min-height: 82vh;
       display: grid;
-      align-items: center;
+      align-items: end;
       box-shadow: var(--shadow);
       background:
-        radial-gradient(circle at top right, rgba(183, 119, 64, 0.16), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(141, 91, 52, 0.12), transparent 30%),
-        linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(249,243,236,0.96) 100%);
-      border: 1px solid rgba(255,255,255,0.55);
+        linear-gradient(180deg, rgba(30,24,20,0.16) 0%, rgba(30,24,20,0.58) 72%, rgba(30,24,20,0.74) 100%),
+        url('IMG_0002.jpeg') center/cover;
+      isolation: isolate;
     }
 
     .hero-content {
-      width: min(820px, calc(100% - 32px));
-      padding: 72px 40px;
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto 0 0;
+      padding: 64px 36px 38px;
+      color: white;
     }
 
     .eyebrow {
@@ -135,27 +176,27 @@
       font-weight: 700;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(141, 91, 52, 0.1);
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
       margin-bottom: 18px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--accent);
     }
 
-    h1 {
+    .hero h1 {
       margin: 0;
-      font-size: clamp(3rem, 8vw, 6.2rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       line-height: 0.95;
       letter-spacing: -0.06em;
-      max-width: 8ch;
+      max-width: 10ch;
     }
 
     .hero-sub {
-      max-width: 640px;
+      max-width: 620px;
       margin: 22px 0 0;
-      color: var(--muted);
+      color: rgba(255,255,255,0.88);
       font-size: clamp(1rem, 1.6vw, 1.14rem);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     .hero-actions {
@@ -176,40 +217,282 @@
       transition: 0.3s ease;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      box-shadow: 0 16px 30px rgba(141, 91, 52, 0.22);
-    }
-
     .btn-secondary {
-      background: white;
-      color: var(--text);
-      border: 1px solid rgba(68, 48, 31, 0.1);
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(14px);
     }
 
-    .info-card {
-      margin-top: 28px;
-      max-width: 620px;
-      background: rgba(255,255,255,0.76);
-      border: 1px solid rgba(68,48,31,0.08);
-      border-radius: 24px;
-      padding: 22px;
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.18);
     }
 
-    .info-card strong {
+    section {
+      padding: 64px 0;
+    }
+
+    .section-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+
+    .section-intro h2 {
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0;
+      max-width: 10ch;
+    }
+
+    .section-intro p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      transform: translateZ(0);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+
+    .service-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .service-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(18, 15, 12, 0.04) 26%, rgba(18,15,12,0.7) 100%);
+      color: white;
+    }
+
+    .service-overlay small {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.76);
+    }
+
+    .service-overlay h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 2vw, 1.9rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .service-overlay p {
+      margin: 0;
+      color: rgba(255,255,255,0.84);
+      line-height: 1.5;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .about-portrait,
+    .contact-panel,
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.55);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+    }
+
+    .about-copy,
+    .contact-panel {
+      padding: 34px;
+    }
+
+    .about-copy h3,
+    .contact-panel h3 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .about-copy p,
+    .contact-panel p,
+    .faq-answer {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .trust-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .trust-points div {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(68,48,31,0.06);
+    }
+
+    .trust-points strong {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .trust-points span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .about-portrait {
+      overflow: hidden;
+      min-height: 560px;
+      position: relative;
+    }
+
+    .about-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-badge {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      right: 22px;
+      background: rgba(25, 19, 15, 0.56);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      border-radius: 24px;
+      padding: 18px;
+    }
+
+    .portrait-badge strong {
+      display: block;
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin: 22px 0 26px;
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.64);
+      border: 1px solid rgba(68,48,31,0.06);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .contact-row span:last-child {
+      text-align: right;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+    }
+
+    .faq-button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+      font-weight: 700;
       font-size: 1.05rem;
     }
 
-    .info-card span {
-      color: var(--muted);
-      line-height: 1.7;
+    .faq-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(141, 91, 52, 0.12);
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: 0.25s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 24px;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 360px;
+      padding: 0 24px 24px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
     }
 
     .footer {
-      padding: 0 0 32px;
+      padding: 26px 0 46px;
     }
 
     .footer-shell {
@@ -218,7 +501,39 @@
       gap: 20px;
       align-items: center;
       color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
       font-size: 0.96rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px) scale(0.985);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      will-change: transform, opacity;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (max-width: 1080px) {
+      .services-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-intro {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .service-card,
+      .about-portrait {
+        min-height: 400px;
+      }
     }
 
     @media (max-width: 780px) {
@@ -226,22 +541,39 @@
         position: static;
       }
 
-      .nav,
-      .footer-shell {
+      .nav {
         flex-direction: column;
-        align-items: start;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: center;
       }
 
       .hero-shell {
-        min-height: 78vh;
+        min-height: 720px;
       }
 
       .hero-content {
         padding: 44px 22px 22px;
       }
 
-      h1 {
+      .hero h1 {
         max-width: none;
+      }
+
+      .trust-points {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-row,
+      .footer-shell {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .contact-row span:last-child {
+        text-align: left;
       }
     }
   </style>
@@ -250,12 +582,18 @@
   <header class="site-header">
     <div class="container nav">
       <a href="#top" class="brand">
-        <div class="brand-mark">LC</div>
+        <img src="vector_logo.svg" alt="Lake Country Handyman Solutions logo" class="brand-mark" />
         <div class="brand-copy">
           <span>Lake Country Handyman Solutions</span>
           <small>Repair, Install, Improve</small>
         </div>
       </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#faq">Q&amp;A</a>
+        <a href="#contact" class="cta">Get in touch</a>
+      </nav>
     </div>
   </header>
 
@@ -263,18 +601,161 @@
     <section class="hero">
       <div class="container">
         <div class="hero-shell">
-          <div class="hero-content">
-            <div class="eyebrow">Coming Soon</div>
-            <h1>Our new website is on the way.</h1>
-            <p class="hero-sub">Lake Country Handyman Solutions will be launching soon. In the meantime, feel free to reach out directly for quotes and project inquiries.</p>
+          <div class="hero-content reveal visible">
+            <div class="eyebrow">Professional handyman services</div>
+            <h1>Tell me what you need, I’ll give you what you want.</h1>
+            <p class="hero-sub">Reliable help for repairs, installations, and practical home improvement projects throughout Waukesha and nearby Lake Country communities.</p>
             <div class="hero-actions">
-              <a href="tel:2627939378" class="btn btn-primary">Call 262-793-9378</a>
-              <a href="mailto:lukethomaskuhns@icloud.com" class="btn btn-secondary">Email Us</a>
+              <a href="#contact" class="btn btn-primary">Request a quote</a>
+              <a href="#faq" class="btn btn-secondary">View Q&amp;A</a>
             </div>
-            <div class="info-card">
-              <strong>Now accepting quote requests</strong>
-              <span>Please call with a brief description of the job and project location, or email photos and a short description to lukethomaskuhns@icloud.com.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-intro reveal">
+          <h2>Work that looks clean and lasts.</h2>
+          <p></p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <img src="IMG_0003.jpeg" alt="Bathroom remodeling and repair work" />
+            <div class="service-overlay">
+              <small>INSTALLATIONS</small>
+              <h3>Mounting, shelving, and home installs</h3>
+              <p>TV mounting, shelving, window shades, curtain rods, furniture assembly, and practical installation work for everyday home needs.</p>
             </div>
+          </article>
+          <article class="service-card reveal">
+            <img src="IMG_0004.jpeg" alt="Flooring and interior repair work in a home" />
+            <div class="service-overlay">
+<small>KITCHEN & PLUMBING FIXES</small>
+<h3>Kitchen repairs and small fixture work</h3>
+<p>Minor kitchen repairs, faucet replacement, under-sink fixes, cabinet adjustments, hardware installation, and practical improvements for everyday use.</p>
+            </div>
+          </article>
+          <article class="service-card reveal">
+            <img src="IMG_0005.jpeg" alt="General repair and utility details" />
+            <div class="service-overlay">
+             <small>HOME MAINTENANCE</small>
+<h3>Decks, gutters, and household tasks</h3>
+<p>Deck repair, gutter cleaning, air filter replacement, light bulb replacement, touch-up painting, and simple home maintenance jobs.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  <section id="about">
+  <div class="container">
+    <div class="section-intro reveal">
+      <h2>Professional help for real homes.</h2>
+      <p></p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <div>
+          <h3>Hi, I’m Luke. Reliable, respectful, and straightforward.</h3>
+          <p>Lake Country Handyman Solutions was built to give homeowners practical help they can feel comfortable with. I focus on clear communication, respectful service, and careful work from the first call to the final walkthrough. Whether it is a repair, installation, or small home improvement project, the goal is simple: do the job right and treat the customer well.</p>
+        </div>
+        <div class="trust-points">
+          <div>
+            <strong>Licensed &amp; Insured</strong>
+            <span>Professional service with the proper coverage and standards homeowners expect.</span>
+          </div>
+          <div>
+            <strong>Respectful in Your Home</strong>
+            <span>Careful work, clean communication, and respect for your home, schedule, and needs.</span>
+          </div>
+          <div>
+            <strong>Clear Communication</strong>
+            <span>Straightforward answers, simple quote requests, and dependable follow-through.</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-portrait reveal">
+        <img src="IMG_0006.jpeg" alt="Luke from Lake Country Handyman Solutions" />
+        <div class="portrait-badge">
+          <strong>Local handyman serving Waukesha &amp; Lake Country</strong>
+          <span>Warm, trustworthy service for homeowners who want the job done right.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-intro reveal">
+          <h2>Q&amp;A</h2>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item reveal active">
+            <button class="faq-button" type="button">
+              <span>What types of projects do you typically handle?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">We help homeowners with a wide range of practical repair, installation, and improvement projects. That includes TV mounting, furniture assembly, shelving and closet systems, fence repair, interior and exterior painting, trim work, drywall repair, window shade installation, and simple household needs such as changing light bulbs or air filters. Whether it is a single repair or a list of projects that need attention, we work to help make the home more functional, finished, and well cared for.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-button" type="button">
+              <span>What services are not offered?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">We keep all work within the scope of the licensing requirements that apply to our services. Accordingly, we do not take on larger projects that fall outside that scope, and we do not perform structural work, work inside walls, electrical work, or major plumbing. We are committed to clear communication, professional service, and operating within the proper legal standards on every job.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-button" type="button">
+              <span>How can I request a quote?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">For quote requests, please call 262-832-4132 with a brief description of the job, the work needed, and the project location. We will work to provide a quote as quickly as possible. Every quote is provided at no charge. Quote requests may also be submitted by email with photos of the job, a short description, and the property address to lukethomaskuhns@icloud.com.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-button" type="button">
+              <span>What areas do you serve?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">We serve Waukesha, Pewaukee, Brookfield, New Berlin, Delafield, Hartland, Sussex, Menomonee Falls, Muskego, Mukwonago, Oconomowoc, and nearby Lake Country communities. Service availability may vary based on drive time and project location.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-button" type="button">
+              <span>Are you licensed and insured?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Yes. We are a licensed and insured LLC. We believe in operating professionally, meeting the appropriate legal requirements, and giving homeowners added confidence when inviting us into their homes.</div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-button" type="button">
+              <span>What if I am not satisfied with the work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">Customer satisfaction is important to us. If a customer is not satisfied with the service provided, we will refund the full labor cost of the job. The customer remains responsible for the cost of any materials used for the project.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-intro reveal">
+          <h2>Get in touch</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-panel reveal">
+            <h3>Contact information</h3>
+            <div class="contact-list">
+              <div class="contact-row"><span>Phone</span><span>262-832-4132</span></div>
+              <div class="contact-row"><span>Email</span><span>lukethomaskuhns@icloud.com</span></div>
+
+            </div>
+            <a href="mailto:lukethomaskuhns@icloud.com" class="btn btn-primary">Email now</a>
+          </div>
+          <div class="about-portrait reveal" style="min-height: 420px;">
+            <img src="vector_logo.svg" alt="Lake Country Handyman Solutions project image" />
           </div>
         </div>
       </div>
@@ -284,9 +765,30 @@
   <footer class="footer">
     <div class="container footer-shell">
       <div>© 2026 Lake Country Handyman Solutions</div>
-      <div>Coming Soon</div>
+      <div>Repair, Install, Improve</div>
     </div>
   </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach((item) => observer.observe(item));
+
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const button = item.querySelector('.faq-button');
+      button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach((faq) => faq.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
-
